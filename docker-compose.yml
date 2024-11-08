@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:8
+    volumes:
+      - mysql:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: 7h_8dA2o3gd
+      MYSQL_DATABASE: wallet_db
+      MYSQL_USER: wallet_user
+      MYSQL_PASSWORD: 7h_8dA2o3gd
+    ports:
+      - "3306:3306"
+
+  web:
+    build: .
+    restart: always
+    command: bash -c "python manage.py migrate --noinput && python manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+
+
+volumes:
+  mysql:

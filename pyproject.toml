@@ -1,0 +1,42 @@
+[tool.poetry]
+name = "wallet"
+version = "0.1.0"
+description = ""
+authors = ["Alexey Miloserdov <a.g.miloserdov@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+django = "^5.0.9"
+django-filter = "^23.0"
+mysql-connector-python = "9.1.0"
+mysqlclient = "2.1.0"
+ipython = "8.28.0"
+pytz = "2024.2"
+tzdata = "2024.2"
+djangorestframework = "^3.15.0"
+drf-spectacular = "0.27.0"
+uwsgi = "^2.0.28"
+
+[tool.poetry.group.dev.dependencies]
+django-debug-toolbar = "4.4.5"
+pytest = "8.3.3"
+pytest-django = "4.9.0"
+black = "^23.1"
+flake8 = "^6.1.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 120
+target-version = ['py311']
+
+[tool.flake8]
+max-line-length = 120
+extend-ignore = "E203, E266, E501, W503, F405"
+exclude = ["build/", "dist/", ".git/", "__pycache__/", "*.pyc", ".venv/", "*.yml"]
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "config.settings.test"
