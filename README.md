@@ -16,8 +16,8 @@ Make sure you have the following software components installed:
 1. **Clone the repository:**
 
     ```bash
-    git clone https://github.com/your-username/your-repo.git
-    cd your-repo
+    git clone git@github.com:agmiloserdov/wallet.git
+    cd wallet
     ```
 
 ### Running the Project using Docker Compose
